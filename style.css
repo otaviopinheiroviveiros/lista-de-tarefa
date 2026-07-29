@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* inicio do style da janela de inicio */
+.conteiner{
+    border: solid gray;
+    background-color: white;
+    border-radius: 20px;
+    width: 22rem;
+    text-align: center;
+    
+    margin: auto;
+    margin-top: 10rem;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.conteiner button.inico{
+    padding: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    border: solid gray;
+    border-radius: 20px;
+}
+
+
+button:active{
+    border: solid blue;
+}
+/* fim do style da janela de inicio */
+
+/* 2 janela add tarefa */
+
+.conteiner-adicionar-tarefa{
+    background-color: white;
+    border: solid gray;
+    border-radius: 20px;
+    
+    margin: auto;
+    margin-top: 2rem;
+    width: 20rem;
+}
+
+h1.titulo-addTarefa{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+#add-tarefa{
+    width: 90%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 5rem;
+    margin-left: 1rem;
+    border: solid gray;
+    border-radius: 20px;
+}
+
+.butao-2janela{
+    border: solid gray;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.conteiner-2janela{
+    width: 200px;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+/* fim do style da 2 janela */
+
+/* inico style 3 janela */
+
+.conteiner-3janela{
+    border: solid gray;
+    border-radius: 20px;
+    min-height: 30rem;
+    width: 20rem;
+    margin: auto;
+    margin-top: 3rem;
+    background-color: white;
+    position: relative;
+}
+
+h1.titulo-tarefas{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.butao-janela3{
+    border: solid gray;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+
+h3{
+    margin-left: 1rem;
+    margin-top: 2rem;
+    border: solid gray;
+    border-radius: 20px;
+    
+    width: 80%;
+    padding: 10px;
+    
+}
+
+/* fim do style da 3 janela */
+
+
+
+
+
+
+
+
+
+
+
+
+body{
+    background: linear-gradient(
+    90deg,
+    #111827 50%,
+    #1F2937 80%
+    );
+}
