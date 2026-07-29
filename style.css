@@ -13,7 +13,7 @@
     text-align: center;
     
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 5rem;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -36,12 +36,14 @@ button:active{
 /* 2 janela add tarefa */
 
 .conteiner-adicionar-tarefa{
+    display: none;
+    flex-flow: column nowrap;
     background-color: white;
     border: solid gray;
     border-radius: 20px;
     
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 5rem;
     width: 20rem;
 }
 
@@ -78,12 +80,14 @@ h1.titulo-addTarefa{
 /* inico style 3 janela */
 
 .conteiner-3janela{
+    display: none;
+    flex-flow: column nowrap;
     border: solid gray;
     border-radius: 20px;
     min-height: 30rem;
     width: 20rem;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     background-color: white;
     position: relative;
 }
@@ -111,20 +115,9 @@ h3{
     
     width: 80%;
     padding: 10px;
-    
 }
 
 /* fim do style da 3 janela */
-
-
-
-
-
-
-
-
-
-
 
 
 body{
