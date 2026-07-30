@@ -7,25 +7,24 @@ const volta4janela= document.querySelector("#voltapara-inicio-janela4")
 
 const confirmaTarefa = document.querySelector("#confirmaAddtarefa")
 const butaoacessar4janela = document.querySelector("#butao-remover-tarefa")
-
+const lixeiraRemover = document.querySelector("#lixeira")
 
 butaoaVERTarefa.addEventListener("click",verTarefa)
 butaoaddTarefa.addEventListener("click",addTarefa)
+lixeiraRemover.addEventListener("click",removertarefa)
 
 volta4janela.addEventListener("click",voltarDa4janelaP1)
 voltar2janela.addEventListener("click",voltarDa2JanelaP1)
 volta3janela.addEventListener("click",voltaDa3janelaP1)
 
 confirmaTarefa.addEventListener("click",confirmaEaddTarefa)
-butaoacessar4janela.addEventListener("click",removertarefa)
+butaoacessar4janela.addEventListener("click",janela4removertarefa)
 
 const conteinerInicio = document.querySelector(".conteiner")
 const conteinerAddTarefa = document.querySelector(".conteiner-adicionar-tarefa")
 const conteiner3janela = document.querySelector(".conteiner-3janela")
 const conteiner4janela = document.querySelector(".conteiner-remover-tarefa")
 const erromsg = document.querySelector("h2")
-
-console.log(erromsg)
 
 const tarefas = []
 
@@ -95,7 +94,7 @@ function voltaDa3janelaP1(){
 }
 
 function voltarDa4janelaP1(){
-      const tarefasCriadas = document.querySelectorAll(".conteiner-remover-tarefa h3")
+    const tarefasCriadas = document.querySelectorAll(".conteiner-remover-tarefa h3")
     
     for(let tarefa of tarefasCriadas){
         tarefa.remove()
@@ -104,17 +103,51 @@ function voltarDa4janelaP1(){
     conteinerInicio.style.display = "flex"
 }
 
-function removertarefa(){
+let contador = 0
+let elementoLista = ""
+let textoComparacao = ""
+function janela4removertarefa(){
     conteiner4janela.style.display = "flex"
     conteinerInicio.style.display = "none"
 
-      
-    let contador = 0
 
-    for(let elementoLista of tarefas){
+    for(elementoLista of tarefas){
         contador++
         let lista = document.createElement("h3")
         lista.innerText = `tarefa ${contador}: ${elementoLista}`
+        textoComparacao = elementoLista
+        lista.addEventListener("click",flitrarElemtosParaRemover)
         conteiner4janela.appendChild(lista)        
     }
+}
+
+let tarefaSelecionada = ""
+let textoSelecionado = ""
+let indiciselecionado = null
+
+function flitrarElemtosParaRemover(event){
+    event.target.classList.add("ciclkremover")
+    tarefaSelecionada = event.target
+    textoSelecionado += event.target.innerText
+}   
+
+
+function removertarefa(){
+    console.log(tarefas)
+    for(let i = 0; i< tarefas.length; i++){
+        console.log(textoSelecionado)
+        
+        if(textoComparacao === tarefas[i]){
+            console.log("entrou")
+            console.log(i)
+            indiciselecionado = i
+            
+            console.log(tarefas)
+       
+        }
+    }
+
+    tarefas.splice(indiciselecionado,1)
+    console.log(tarefas)
+
 }
