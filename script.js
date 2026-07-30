@@ -23,6 +23,9 @@ const conteinerInicio = document.querySelector(".conteiner")
 const conteinerAddTarefa = document.querySelector(".conteiner-adicionar-tarefa")
 const conteiner3janela = document.querySelector(".conteiner-3janela")
 const conteiner4janela = document.querySelector(".conteiner-remover-tarefa")
+const erromsg = document.querySelector("h2")
+
+console.log(erromsg)
 
 const tarefas = []
 
@@ -31,11 +34,32 @@ function addTarefa(){
     conteinerAddTarefa.style.display = "flex"
 }
 
+let controlemsgerro = null
+
+function mensagemErro(){
+    if(controlemsgerro !== null){
+        return
+    }else{
+        erromsg.style.visibility = "visible"
+        controlemsgerro = setTimeout(function(){
+            erromsg.style.visibility = "hidden"
+            controlemsgerro = null
+        },3000)
+    }
+}
+
+
 function confirmaEaddTarefa(){
     let valorTarefa = document.querySelector("#adicionar-tarefa")
-    tarefas.push(valorTarefa.value)
 
-    valorTarefa.value = ""
+    if(valorTarefa.value === ""){
+        mensagemErro()
+        return
+    }else{
+        tarefas.push(valorTarefa.value)
+        valorTarefa.value = ""
+    }
+
 }
 
 function verTarefa(){
@@ -56,6 +80,7 @@ function verTarefa(){
 function voltarDa2JanelaP1(){
     conteinerAddTarefa.style.display = "none"
     conteinerInicio.style.display = "flex"
+    erromsg.style.visibility = "hidden"  
 }
 
 function voltaDa3janelaP1(){
@@ -70,6 +95,11 @@ function voltaDa3janelaP1(){
 }
 
 function voltarDa4janelaP1(){
+      const tarefasCriadas = document.querySelectorAll(".conteiner-remover-tarefa h3")
+    
+    for(let tarefa of tarefasCriadas){
+        tarefa.remove()
+    }
     conteiner4janela.style.display = "none"
     conteinerInicio.style.display = "flex"
 }
@@ -77,4 +107,14 @@ function voltarDa4janelaP1(){
 function removertarefa(){
     conteiner4janela.style.display = "flex"
     conteinerInicio.style.display = "none"
+
+      
+    let contador = 0
+
+    for(let elementoLista of tarefas){
+        contador++
+        let lista = document.createElement("h3")
+        lista.innerText = `tarefa ${contador}: ${elementoLista}`
+        conteiner4janela.appendChild(lista)        
+    }
 }
