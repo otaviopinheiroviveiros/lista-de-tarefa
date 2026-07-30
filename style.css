@@ -52,7 +52,7 @@ h1.titulo-addTarefa{
     margin-left: 1rem;
 }
 
-#add-tarefa{
+#adicionar-tarefa{
     width: 90%;
     padding: 1rem;
     font-size: 1rem;
@@ -107,14 +107,15 @@ h1.titulo-tarefas{
     top: 1rem;
 }
 
-h3{
+h3{ 
     margin-left: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border: solid gray;
     border-radius: 20px;
     
     width: 80%;
     padding: 10px;
+    overflow-wrap:break-word;
 }
 
 /* fim do style da 3 janela */
