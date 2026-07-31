@@ -105,7 +105,7 @@ function voltarDa4janelaP1(){
 
 let contador = 0
 let elementoLista = ""
-let textoComparacao = ""
+
 function janela4removertarefa(){
     conteiner4janela.style.display = "flex"
     conteinerInicio.style.display = "none"
@@ -114,8 +114,7 @@ function janela4removertarefa(){
     for(elementoLista of tarefas){
         contador++
         let lista = document.createElement("h3")
-        lista.innerText = `tarefa ${contador}: ${elementoLista}`
-        textoComparacao = elementoLista
+        lista.innerText = elementoLista
         lista.addEventListener("click",flitrarElemtosParaRemover)
         conteiner4janela.appendChild(lista)        
     }
@@ -128,26 +127,22 @@ let indiciselecionado = null
 function flitrarElemtosParaRemover(event){
     event.target.classList.add("ciclkremover")
     tarefaSelecionada = event.target
-    textoSelecionado += event.target.innerText
+    textoSelecionado = event.target.innerText
 }   
 
 
 function removertarefa(){
-    console.log(tarefas)
     for(let i = 0; i< tarefas.length; i++){
-        console.log(textoSelecionado)
         
-        if(textoComparacao === tarefas[i]){
+        if(textoSelecionado === tarefas[i]){
             console.log("entrou")
             console.log(i)
             indiciselecionado = i
-            
-            console.log(tarefas)
        
         }
     }
 
     tarefas.splice(indiciselecionado,1)
-    console.log(tarefas)
+    tarefaSelecionada.remove()
 
 }
