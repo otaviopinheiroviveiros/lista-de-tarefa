@@ -125,9 +125,15 @@ let textoSelecionado = ""
 let indiciselecionado = null
 
 function flitrarElemtosParaRemover(event){
-    event.target.classList.add("ciclkremover")
-    tarefaSelecionada = event.target
-    textoSelecionado = event.target.innerText
+    if(tarefaSelecionada === ""){
+        event.target.classList.add("ciclkremover")
+        tarefaSelecionada = event.target
+        textoSelecionado = event.target.innerText
+    }else if(textoSelecionado !== ""){
+        return
+    }
+    
+    
 }   
 
 
@@ -142,7 +148,9 @@ function removertarefa(){
         }
     }
 
-    tarefas.splice(indiciselecionado,1)
     tarefaSelecionada.remove()
+    
+    tarefas.splice(indiciselecionado,1)
+    tarefaSelecionada = ""
 
 }
