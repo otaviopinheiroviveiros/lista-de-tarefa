@@ -27,10 +27,6 @@
     border-radius: 20px;
 }
 
-
-button:active{
-    border: solid blue;
-}
 /* fim do style da janela de inicio */
 
 /* 2 janela add tarefa */
@@ -176,6 +172,7 @@ img{
 }
 
 /* fim do style da janela 4 */
+
 body{
     background: linear-gradient(
     90deg,
