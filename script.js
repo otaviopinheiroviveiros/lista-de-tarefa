@@ -120,37 +120,40 @@ function janela4removertarefa(){
     }
 }
 
-let tarefaSelecionada = ""
-let textoSelecionado = ""
-let indiciselecionado = null
+let tarefaSelecionada = []
+
+let textoSelecionado = []
+let indiciselecionado = []
 
 function flitrarElemtosParaRemover(event){
-    if(tarefaSelecionada === ""){
-        event.target.classList.add("ciclkremover")
-        tarefaSelecionada = event.target
-        textoSelecionado = event.target.innerText
-    }else if(textoSelecionado !== ""){
-        return
-    }
-    
-    
+    event.target.classList.add("ciclkremover")
+    tarefaSelecionada.push(event.target)
+    textoSelecionado.push(event.target.innerText)
 }   
 
 
 function removertarefa(){
     for(let i = 0; i< tarefas.length; i++){
-        
-        if(textoSelecionado === tarefas[i]){
-            console.log("entrou")
-            console.log(i)
-            indiciselecionado = i
-       
+        for(let j = 0; j< textoSelecionado.length; j++){
+            
+            if(tarefas[i] === textoSelecionado[j]){
+                indiciselecionado.push(i)
+                
+            }
         }
     }
 
-    tarefaSelecionada.remove()
+    for(let r = indiciselecionado.length - 1; r >= 0; r--){
+        tarefas.splice(indiciselecionado[r],1)
+        textoSelecionado = []
+    }
     
-    tarefas.splice(indiciselecionado,1)
-    tarefaSelecionada = ""
+    for( let i = 0; i< tarefaSelecionada.length; i++){
+        tarefaSelecionada[i].remove()
+    }
+    tarefaSelecionada = []
 
+    console.log(tarefas)
+    console.log(textoSelecionado)
+    console.log(tarefaSelecionada)
 }

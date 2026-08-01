@@ -9,7 +9,7 @@
     border: solid gray;
     background-color: white;
     border-radius: 20px;
-    width: 22rem;
+    width: 20rem;
     text-align: center;
     
     margin: auto;
@@ -153,6 +153,11 @@ h3{
     border: solid gray;
     border-radius: 20px;
     padding: 10px 40px 10px 40px;
+}
+
+.conteiner-remover-tarefa h1{
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 
 img{
