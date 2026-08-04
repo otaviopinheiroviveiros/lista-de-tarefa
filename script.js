@@ -160,8 +160,9 @@ function removertarefa(){
 
     for(let r = indiciselecionado.length - 1; r >= 0; r--){
         tarefas.splice(indiciselecionado[r],1)
-        textoSelecionado = []
     }
+    
+    textoSelecionado = []
     
     for( let i = 0; i< tarefaSelecionada.length; i++){
         tarefaSelecionada[i].remove()
