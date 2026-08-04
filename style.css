@@ -15,15 +15,20 @@
     
     margin: auto;
     margin-top: 5rem;
-    display: flex;
+    display: none;
     flex-flow: column nowrap;
 }
 
+h1{
+    font-size: 3rem;
+}
+
 .conteiner button.inico{
-    padding: 10px;
+    padding: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
     border: solid gray;
     border-radius: 20px;
 }
@@ -53,7 +58,7 @@ h1.titulo-addTarefa{
 #adicionar-tarefa{
     width: 90%;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 2rem;
     margin-left: 1rem;
     border: solid gray;
@@ -62,13 +67,15 @@ h1.titulo-addTarefa{
 
 .butao-2janela{
     border: solid gray;
-    padding: 10px;
+    padding: 20px;
+    font-size: 1.5rem;
     border-radius: 20px;
     margin-bottom: 1rem;
 }
 
 .conteiner-2janela{
-    width: 200px;
+    border: solid red;
+    width: 17rem;
     margin-left: 5rem;
     margin-top: 2rem;
 }
@@ -108,9 +115,9 @@ h1.titulo-tarefas{
 
 .butao-janela3{
     border: solid gray;
-    padding: 10px 20px 10px 20px;
+    padding: 20px;
     border-radius: 20px;
-
+    font-size: 1.3rem;
     position: absolute;
     right: 2rem;
     top: 1rem;
@@ -132,7 +139,7 @@ h3{
 /* inico style janela 4 */
 
 .conteiner-remover-tarefa{
-    display: none;
+    display: flex;
     flex-flow: column nowrap;
     border: solid gray;
     border-radius: 20px;
@@ -146,17 +153,20 @@ h3{
 }
 
 .conteiner-remover-tarefa button{
+    font-size: 1.5rem;
+    padding: 30px;
     width: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
+    background-color: white;
 }
 
 .conteiner-remover-tarefa button.voltar-para-inicio4janela{
     border: solid gray;
     border-radius: 20px;
-    padding: 10px 40px 10px 40px;
+    padding: 1rem 3rem 1rem 3rem;
 }
 
 .conteiner-remover-tarefa h1{
