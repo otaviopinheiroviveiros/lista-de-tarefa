@@ -158,6 +158,8 @@ function removertarefa(){
         }
     }
 
+    indiciselecionado = []
+
     for(let r = indiciselecionado.length - 1; r >= 0; r--){
         tarefas.splice(indiciselecionado[r],1)
     }
