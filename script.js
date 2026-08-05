@@ -1,6 +1,8 @@
 const butaoaddTarefa = document.querySelector("#butao-adicionar-tarefa")
 const butaoaVERTarefa = document.querySelector("#butao-verTarefa")
 
+// voltarjanela significa voltar da pagina atual para a proxima osnumeros representão a janela atual
+// e que vai voltar dela para a inicial.
 const voltar2janela = document.querySelector("#voltar-da-2janela-inicial")
 const volta3janela = document.querySelector("#volta-da3janela-inicio")
 const volta4janela= document.querySelector("#voltapara-inicio-janela4")
@@ -33,9 +35,11 @@ function addTarefa(){
     conteinerAddTarefa.style.display = "flex"
 }
 
+// variavel de controle do meu setTimeout que mostra minha mensagem de erro!
 let controlemsgerro = null
 
 function mensagemErro(){
+    // se já estiver um timeout criado retorne.
     if(controlemsgerro !== null){
         return
     }else{
@@ -67,7 +71,7 @@ function verTarefa(){
     conteiner3janela.style.display = "flex"
     
     let contador = 0
-
+    // for que percorre o array e cria os elementos h3 na tela
     for(let elementoLista of tarefas){
         contador++
         let lista = document.createElement("h3")
@@ -82,6 +86,10 @@ function voltarDa2JanelaP1(){
     erromsg.style.visibility = "hidden"  
 }
 
+// essa funçaõ inpede que aconteça o bug de criar varios elemtos
+// toda vez que retorna da janela ver tarefa ou remover tarefa, o for percorre a variavel tarefasCriadas que é uma lista!
+// dessa forma ao percorrer a lista, logo em seguida armazena os valores e remove.
+// dessa forma toda vez que essas 2 janelas são abertas elas não criao elementos extras.
 function voltaDa3janelaP1(){
     const tarefasCriadas = document.querySelectorAll(".conteiner-3janela h3")
     
@@ -92,10 +100,9 @@ function voltaDa3janelaP1(){
     conteiner3janela.style.display = "none"
     conteinerInicio.style.display = "flex"
 }
-
 function voltarDa4janelaP1(){
     const tarefasCriadas = document.querySelectorAll(".conteiner-remover-tarefa h3")
-    
+
     for(let tarefa of tarefasCriadas){
         tarefa.remove()
     }
@@ -103,39 +110,45 @@ function voltarDa4janelaP1(){
     conteinerInicio.style.display = "flex"
 }
 
-let contador = 0
 let elementoLista = ""
+
 
 function janela4removertarefa(){
     conteiner4janela.style.display = "flex"
     conteinerInicio.style.display = "none"
 
-
+    // cria dinamicamente os H3 para exibir as tarefas na janela de remoção
     for(elementoLista of tarefas){
-        contador++
         let lista = document.createElement("h3")
         lista.innerText = elementoLista
         lista.addEventListener("click",flitrarElemtosParaRemover)
         conteiner4janela.appendChild(lista)        
     }
 }
-
+// armazena os elementos H3 selecionados visualmente
 let tarefaSelecionada = []
 
+// armazena apenas os textos das tarefas selecionadas
 let textoSelecionado = []
+
+// armazena os índices encontrados para remoção
 let indiciselecionado = []
 
 function flitrarElemtosParaRemover(event){
-
+    // essa linha adicionar um valor boleano, a partir do metodo contains ele pergunta.
+    // o elemento clicado tem a classe clickDuplo
     let selecionado = event.target.classList.contains("clickDuplo")
-
+    
+    // se não tiver adicone
     if(selecionado === false){
         event.target.classList.add("clickDuplo")
         tarefaSelecionada.push(event.target)
         textoSelecionado.push(event.target.innerText)
     
+    // se ja tiver remova
     }else{
         event.target.classList.remove("clickDuplo")
+        // procura a posição do elemento clicado dentro do array tarefaSelecionada
         let indice = tarefaSelecionada.findIndex(indice => indice === event.target)
 
         tarefas.splice(indice,1)
@@ -148,23 +161,29 @@ function flitrarElemtosParaRemover(event){
 
 
 function removertarefa(){
+    // o for percorre o array de tarefa e add o indice na variavel I
     for(let i = 0; i< tarefas.length; i++){
         for(let j = 0; j< textoSelecionado.length; j++){
-            
+            // aqui ele compara os valores que esta no indice j e I
+            // se for igual ele adiciona o indice no array de indice selecionado
+            // isso permite armazenar varios valores, ou  melhor varias selecoes de items 
             if(tarefas[i] === textoSelecionado[j]){
                 indiciselecionado.push(i)
                 
             }
         }
     }
-
+    // aqui ele percorre o arrai de indice de traz pra frente
+    // isso permite que ele remoova sempre o maior indice
     for(let r = indiciselecionado.length - 1; r >= 0; r--){
         tarefas.splice(indiciselecionado[r],1)
     }
-    
+    // zerando os arrays 
+    // evitando que remoções futuras usem valores antigos.
     textoSelecionado = []
     indiciselecionado = []
 
+    // aqui é a remoção visual do items, ele percorre e remove item por item!
     for( let i = 0; i< tarefaSelecionada.length; i++){
         tarefaSelecionada[i].remove()
     }
