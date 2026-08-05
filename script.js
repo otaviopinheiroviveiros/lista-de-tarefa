@@ -86,10 +86,8 @@ function voltarDa2JanelaP1(){
     erromsg.style.visibility = "hidden"  
 }
 
-// essa funçaõ inpede que aconteça o bug de criar varios elemtos
-// toda vez que retorna da janela ver tarefa ou remover tarefa, o for percorre a variavel tarefasCriadas que é uma lista!
-// dessa forma ao percorrer a lista, logo em seguida armazena os valores e remove.
-// dessa forma toda vez que essas 2 janelas são abertas elas não criao elementos extras.
+// remove os elementos criados dinamicamente.
+// evita que tarefas duplicadas apareçam ao reabrir a janela.
 function voltaDa3janelaP1(){
     const tarefasCriadas = document.querySelectorAll(".conteiner-3janela h3")
     
@@ -100,6 +98,7 @@ function voltaDa3janelaP1(){
     conteiner3janela.style.display = "none"
     conteinerInicio.style.display = "flex"
 }
+
 function voltarDa4janelaP1(){
     const tarefasCriadas = document.querySelectorAll(".conteiner-remover-tarefa h3")
 
@@ -125,6 +124,7 @@ function janela4removertarefa(){
         conteiner4janela.appendChild(lista)        
     }
 }
+
 // armazena os elementos H3 selecionados visualmente
 let tarefaSelecionada = []
 
