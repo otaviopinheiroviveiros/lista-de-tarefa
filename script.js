@@ -163,11 +163,11 @@ function removertarefa(){
     }
     
     textoSelecionado = []
-    
+    indiciselecionado = []
+
     for( let i = 0; i< tarefaSelecionada.length; i++){
         tarefaSelecionada[i].remove()
     }
     
     tarefaSelecionada = []
-    
 }
