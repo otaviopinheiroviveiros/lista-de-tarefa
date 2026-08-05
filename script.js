@@ -137,14 +137,14 @@ function flitrarElemtosParaRemover(event){
     }else{
         event.target.classList.remove("clickDuplo")
         let indice = tarefaSelecionada.findIndex(indice => indice === event.target)
-        
+
         tarefas.splice(indice,1)
         tarefaSelecionada.splice(indice,1)
         textoSelecionado.splice(indice,1)
     }
 
-
 }   
+
 
 
 function removertarefa(){
@@ -158,8 +158,6 @@ function removertarefa(){
         }
     }
 
-    indiciselecionado = []
-
     for(let r = indiciselecionado.length - 1; r >= 0; r--){
         tarefas.splice(indiciselecionado[r],1)
     }
@@ -171,4 +169,5 @@ function removertarefa(){
     }
     
     tarefaSelecionada = []
+    
 }
