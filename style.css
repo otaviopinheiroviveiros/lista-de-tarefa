@@ -15,7 +15,7 @@
     
     margin: auto;
     margin-top: 5rem;
-    display: none;
+    display: flex;
     flex-flow: column nowrap;
 }
 
@@ -74,7 +74,6 @@ h1.titulo-addTarefa{
 }
 
 .conteiner-2janela{
-    border: solid red;
     width: 17rem;
     margin-left: 5rem;
     margin-top: 2rem;
@@ -156,7 +155,7 @@ h3{
     font-size: 1.5rem;
     padding: 30px;
     width: 3rem;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     border: none;
