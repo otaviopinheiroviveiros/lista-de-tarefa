@@ -30,6 +30,14 @@ const erromsg = document.querySelector("h2")
 
 const tarefas = []
 
+const verificarArmazenamento = localStorage.getItem("tarefa")
+
+// verifica se existe alguma tarefa salva no localStorage
+if(verificarArmazenamento !== null){
+    // recupera as tarefas salvas; (...) espalha os elementos do array para adicioná-los um por um em tarefas
+    tarefas.push(...JSON.parse(localStorage.getItem("tarefa")))
+}
+
 function addTarefa(){
     conteinerInicio.style.display = "none"
     conteinerAddTarefa.style.display = "flex"
@@ -60,6 +68,8 @@ function confirmaEaddTarefa(){
         return
     }else{
         tarefas.push(valorTarefa.value)
+        // salva o array tarefas no localStorage em formato JSON
+        localStorage.setItem("tarefa",JSON.stringify(tarefas))
         valorTarefa.value = ""
     }
 
@@ -178,6 +188,8 @@ function removertarefa(){
     for(let r = indiciselecionado.length - 1; r >= 0; r--){
         tarefas.splice(indiciselecionado[r],1)
     }
+        localStorage.setItem("tarefa",JSON.stringify(tarefas))
+    
     // zerando os arrays 
     // evitando que remoções futuras usem valores antigos.
     textoSelecionado = []
